@@ -36,9 +36,6 @@ import pandas_profiling
 
 
 
-data_url = "http://lib.stat.cmu.edu/datasets/boston" 
-
-
 
 # setting up the page streamlit
 
@@ -103,22 +100,15 @@ app_mode = st.sidebar.selectbox('📄 Select Page',['Introduction 🏃','Visuali
 #load data
 #@st.cache_resource(experimental_allow_widgets=True)
 def get_dataset(select_dataset):
-    if "Wine Quality 🍷" in select_dataset:
-        df = pd.read_csv("wine_quality_red.csv")
-    elif "Titanic 🛳️" in select_dataset: 
-        df = sns.load_dataset('titanic')
-        df = df.drop(['deck','embark_town','who'],axis=1)
-    elif "Income 💵" in select_dataset:
-        df = pd.read_csv("adult_income.csv")
-    else:
-        df = pd.read_csv("Student_Performance.csv")
+    if "Spotify Top 50 🎼" in select_dataset:
+        df = pd.read_csv("music.csv")
     df = df.dropna()
     return select_dataset, df
 
 
 DATA_SELECT = {
-    "Linear Regression": ["Income 💵", "Student Score 💯","Wine Quality 🍷"],
-    "Logistic Regression": ["Wine Quality 🍷","Titanic 🛳️"]
+    "Linear Regression": ["Spotify Top 50 🎼"],
+    "Logistic Regression": ["Spotify Top 50 🎼"]
 }
 
 MODELS = {
@@ -126,10 +116,7 @@ MODELS = {
     "Logistic Regression": LogisticRegression 
 }
 target_variable = {
-    "Wine Quality 🍷": "quality",
-    "Income 💵": "income",
-    "Student Score 💯":"Performance Index",
-    "Titanic 🛳️": "survived"
+    "Spotify Top 50 🎼": "Danceability"
 }
 
 
