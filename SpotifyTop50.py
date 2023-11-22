@@ -80,8 +80,8 @@ def main():
     # hide the footer
     hide_header_footer()
 
-image_nyu = Image.open('images/nyu.png')
-st.image(image_nyu, width=100)
+#image_nyu = Image.open('images/nyu.png')
+#st.image(image_nyu, width=100)
 
 
 
