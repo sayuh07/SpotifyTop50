@@ -119,12 +119,11 @@ target_variable = {
     "Spotify Top 50 🎼": "Danceability"
 }
 
-
+#image_header = Image.open('./images/Linear-Regression1.webp')
 # page 1 
 if app_mode == 'Introduction 🏃':
     if model_mode == 'Linear Regression':
         st.title("Linear Regression Lab 🧪")
-        #image_header = Image.open('./images/Linear-Regression1.webp')
         st.image(image_header, width=600)
 
     elif model_mode == 'Logistic Regression':
