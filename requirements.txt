@@ -26,6 +26,7 @@ markdown-it-py==2.2.0
 MarkupSafe==2.1.2
 matplotlib==3.6.3
 mdurl==0.1.2
+mlflow
 more-itertools==9.1.0
 multimethod==1.9.1
 networkx==3.0
