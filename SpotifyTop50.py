@@ -135,8 +135,8 @@ if app_mode == 'Introduction 🏃':
     select_dataset, df = get_dataset(select_data)
 
     st.markdown("### 00 - Show  Dataset")
-    # Wine Quality dataset
-    if select_dataset == "Wine Quality 🍷":
+    # Spotify top 50 dataset
+    if select_dataset == "Spotify Top 50 🎼":
         
         st.markdown(
             """
@@ -197,27 +197,47 @@ if app_mode == 'Introduction 🏃':
             </style>
             """,unsafe_allow_html=True
         )
-        col1, col2, col3,col4,col5,col6,col7,col8,col9,col10 = st.columns(10)
-        col1.markdown(" **fixed acidity** ")
+        col1, col2, col3,col4,col5,col6,col7,col8,col9,col10,col11, col12, col13,col14,col15,col16,col17,col18,col19,col20 = st.columns(20)
+        col1.markdown(" **Country** ")
         col1.markdown("most acids involved with wine or fixed or nonvolatile (do not evaporate readily)")
-        col2.markdown(" **volatile acidity** ")
+        col2.markdown(" **Track Name** ")
         col2.markdown("the amount of acetic acid in wine, which at too high of levels can lead to an unpleasant, vinegar taste")
-        col3.markdown(" **citric acid** ")
+        col3.markdown(" **Artist Name** ")
         col3.markdown("found in small quantities, citric acid can add 'freshness' and flavor to wines")
-        col4.markdown(" **residual sugar** ")
+        col4.markdown(" **Album Name** ")
         col4.markdown("the amount of sugar remaining after fermentation stops, it's rare to find wines with less than 1 gram/liter")
-        col5.markdown(" **chlorides** ")
+        col5.markdown(" **Popularity** ")
         col5.markdown("the amount of salt in the wine")
-        col6.markdown(" **free sulfur dioxide** ")
+        col6.markdown(" **Date** ")
         col6.markdown("the free form of SO2 exists in equilibrium between molecular SO2 (as a dissolved gas) and bisulfite ion; it prevents ")
-        col7.markdown(" **total sulfur dioxide** ")
+        col7.markdown(" **Markets** ")
         col7.markdown("amount of free and bound forms of S02; in low concentrations, SO2 is mostly undetectable in wine, but at free SO2 ")
-        col8.markdown(" **density** ")
+        col8.markdown(" **Danceability** ")
         col8.markdown("the density of water is close to that of water depending on the percent alcohol and sugar content")
-        col9.markdown(" **pH** ")
+        col9.markdown(" **Acousticness** ")
         col9.markdown("describes how acidic or basic a wine is on a scale from 0 (very acidic) to 14 (very basic); most wines are between 3-4 on the ")
-        col10.markdown(" **sulphates** ")
+        col10.markdown(" **Duration** ")
         col10.markdown("a wine additive which can contribute to sulfur dioxide gas (S02) levels, wich acts as an antimicrobia")
+        col11.markdown(" **Energy** ")
+        col11.markdown("most acids involved with wine or fixed or nonvolatile (do not evaporate readily)")
+        col12.markdown(" **Instrumentalness** ")
+        col12.markdown("the amount of acetic acid in wine, which at too high of levels can lead to an unpleasant, vinegar taste")
+        col13.markdown(" **Key** ")
+        col13.markdown("found in small quantities, citric acid can add 'freshness' and flavor to wines")
+        col14.markdown(" **Liveness** ")
+        col14.markdown("the amount of sugar remaining after fermentation stops, it's rare to find wines with less than 1 gram/liter")
+        col15.markdown(" **Loudness** ")
+        col15.markdown("the amount of salt in the wine")
+        col16.markdown(" **Mode** ")
+        col16.markdown("the free form of SO2 exists in equilibrium between molecular SO2 (as a dissolved gas) and bisulfite ion; it prevents ")
+        col17.markdown(" **Speechiness** ")
+        col17.markdown("amount of free and bound forms of S02; in low concentrations, SO2 is mostly undetectable in wine, but at free SO2 ")
+        col18.markdown(" **Tempo** ")
+        col18.markdown("the density of water is close to that of water depending on the percent alcohol and sugar content")
+        col19.markdown(" **TSignature** ")
+        col19.markdown("describes how acidic or basic a wine is on a scale from 0 (very acidic) to 14 (very basic); most wines are between 3-4 on the ")
+        col20.markdown(" **Positiveness** ")
+        col20.markdown("a wine additive which can contribute to sulfur dioxide gas (S02) levels, wich acts as an antimicrobia")
 
     
     num = st.number_input('No. of Rows', 5, 10)
