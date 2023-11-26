@@ -197,7 +197,7 @@ if app_mode == 'Introduction 🏃':
             </style>
             """,unsafe_allow_html=True
         )
-        col1, col2, col3,col4,col5,col6,col7,col8,col9,col10,col11, col12, col13,col14,col15,col16,col17,col18,col19,col20 = st.columns(20)
+        col1, col2, col3,col4,col5,col6,col7,col8,col9,col10 = st.columns(10)
         col1.markdown(" **Country** ")
         col1.markdown("most acids involved with wine or fixed or nonvolatile (do not evaporate readily)")
         col2.markdown(" **Track Name** ")
@@ -218,6 +218,67 @@ if app_mode == 'Introduction 🏃':
         col9.markdown("describes how acidic or basic a wine is on a scale from 0 (very acidic) to 14 (very basic); most wines are between 3-4 on the ")
         col10.markdown(" **Duration** ")
         col10.markdown("a wine additive which can contribute to sulfur dioxide gas (S02) levels, wich acts as an antimicrobia")
+        
+        st.markdown(
+            """
+            <style>
+                div[data-testid="column"]:nth-of-type(1)
+                {
+                    border:1px solid blue;
+                    text-align: center;
+                    font-family: bariol;
+                } 
+
+                div[data-testid="column"]:nth-of-type(2)
+                {
+                    border:1px solid blue;
+                    text-align: center;
+                   
+                }
+                div[data-testid="column"]:nth-of-type(3)
+                {
+                    border:1px solid blue;
+                    text-align: center;
+                }
+                div[data-testid="column"]:nth-of-type(4)
+                {
+                    border:1px solid blue;
+                    text-align: center;
+                } 
+                div[data-testid="column"]:nth-of-type(5)
+                {
+                    border:1px solid blue;
+                    text-align: center;
+                } 
+                div[data-testid="column"]:nth-of-type(6)
+                {
+                    border:1px solid blue;
+                    text-align: center;
+                } 
+                div[data-testid="column"]:nth-of-type(7)
+                {
+                    border:1px solid blue;
+                    text-align: center;
+                } 
+                div[data-testid="column"]:nth-of-type(8)
+                {
+                    border:1px solid blue;
+                    text-align: center;
+                } 
+                div[data-testid="column"]:nth-of-type(9)
+                {
+                    border:1px solid blue;
+                    text-align: center;
+                } 
+                div[data-testid="column"]:nth-of-type(10)
+                {
+                    border:1px solid blue;
+                    text-align: center;
+                } 
+            </style>
+            """,unsafe_allow_html=True
+        )
+        col11, col12, col13,col14,col15,col16,col17,col18,col19,col20 = st.columns(10)
         col11.markdown(" **Energy** ")
         col11.markdown("most acids involved with wine or fixed or nonvolatile (do not evaporate readily)")
         col12.markdown(" **Instrumentalness** ")
@@ -238,7 +299,8 @@ if app_mode == 'Introduction 🏃':
         col19.markdown("describes how acidic or basic a wine is on a scale from 0 (very acidic) to 14 (very basic); most wines are between 3-4 on the ")
         col20.markdown(" **Positiveness** ")
         col20.markdown("a wine additive which can contribute to sulfur dioxide gas (S02) levels, wich acts as an antimicrobia")
-
+        
+        
     
     num = st.number_input('No. of Rows', 5, 10)
     head = st.radio('View from top (head) or bottom (tail)', ('Head', 'Tail'))
