@@ -120,16 +120,16 @@ target_variable = {
 }
 
 #image_header = Image.open('./images/Linear-Regression1.webp')
+#st.image(image_header, width=600)
 # page 1 
 if app_mode == 'Introduction 🏃':
     if model_mode == 'Linear Regression':
         st.title("Linear Regression Lab 🧪")
-        st.image(image_header, width=600)
 
+#image_header = Image.open('./images/Logistic-Regression.jpg')
+#st.image(image_header, width=600)
     elif model_mode == 'Logistic Regression':
         st.title("Logistic Regression Lab 🧪") 
-        image_header = Image.open('./images/Logistic-Regression.jpg')
-        st.image(image_header, width=600)
 
     select_data =  st.sidebar.selectbox('💾 Select Dataset',DATA_SELECT[model_mode])
     select_dataset, df = get_dataset(select_data)
