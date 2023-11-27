@@ -421,8 +421,8 @@ if app_mode == 'Visualization 📊':
     if tab2.button("Show Line Chart Code"):
         code = '''st.line_chart(data=df, x=symbols[0],y=symbols[1], width=0, height=0, use_container_width=True)'''
         tab2.code(code, language='python')
-    tab2.write(" ")
-    tab2.line_chart(data=df, x=symbols[0],y=symbols[1], width=0, height=0, use_container_width=True)
+        tab2.write(" ")
+        tab2.line_chart(data=df, x=symbols[0],y=symbols[1], width=0, height=0, use_container_width=True)
 
     #tab3 
     tab3.subheader("Correlation Chart ⛖")
