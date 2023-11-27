@@ -395,7 +395,7 @@ if app_mode == 'Visualization 📊':
     st.markdown("# :violet[Visualization 📊]")
     #select_dataset =  st.sidebar.selectbox('💾 Select Dataset',DATA_SELECT[model_mode])
     #select_dataset, df = get_dataset(select_dataset)
-    df = get_dataset("music.csv")
+    #df = get_dataset("music.csv")
     list_variables = df.columns
 
     symbols = st.multiselect("Select two variables",list_variables,["Energy", "Danceability"] )
