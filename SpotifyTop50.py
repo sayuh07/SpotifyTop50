@@ -102,8 +102,8 @@ app_mode = st.sidebar.selectbox('📄 Select Page',['Introduction 🏃','Visuali
 def get_dataset(select_dataset):
     if "Spotify Top 50 🎼" in select_dataset:
         df = pd.read_csv("music.csv")
-    df = df.dropna()
-    return select_dataset, df
+        df = df.dropna()
+        return select_dataset, df
 
 
 DATA_SELECT = {
