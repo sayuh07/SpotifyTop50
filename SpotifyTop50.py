@@ -397,8 +397,7 @@ if app_mode == 'Visualization 📊':
     select_dataset, df = get_dataset(select_dataset)
     list_variables = df.columns
 
-    if select_dataset == "Wine Quality 🍷":
-        symbols = st.multiselect("Select two variables",list_variables,["Energy", "Danceability"] )
+    symbols = st.multiselect("Select two variables",list_variables,["Energy", "Danceability"] )
    
 
     tab1, tab2, tab3, tab4= st.tabs(["Bar Chart 📊","Line Chart 📈","Correlation ⛖","Pairplot 🗠"])  
