@@ -398,17 +398,8 @@ if app_mode == 'Visualization 📊':
     list_variables = df.columns
 
     if select_dataset == "Wine Quality 🍷":
-        symbols = st.multiselect("Select two variables",list_variables,["sulphates","volatile acidity"] )
+        symbols = st.multiselect("Select two variables",list_variables,["Energy", "Danceability"] )
    
-    elif select_dataset == "Titanic 🛳️":
-        symbols = st.multiselect("Select two variables",list_variables,["sex","age"] )
-
-    elif select_dataset == "Student Score 💯":
-        symbols = st.multiselect("Select two variables",list_variables,["Hours Studied","Performance Index"] )
-        
-
-    elif select_dataset == "Income 💵":
-        symbols = st.multiselect("Select two variables",list_variables, ["income","fnlwgt"] )
 
     tab1, tab2, tab3, tab4= st.tabs(["Bar Chart 📊","Line Chart 📈","Correlation ⛖","Pairplot 🗠"])  
     #tab1, tab2= st.tabs(["Line Chart","📈 Correlation"])    
