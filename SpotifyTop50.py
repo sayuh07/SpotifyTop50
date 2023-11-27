@@ -831,10 +831,8 @@ if __name__=='__main__':
 
 st.markdown(" ")
 st.markdown("### 👨🏼‍💻 **App Contributors:** ")
-#st.image(['images/gaetan.png'], width=100,caption=["Gaëtan Brison"])
-
-st.markdown(f"####  Link to Project Website [here]({'https://github.com/NYU-DS-4-Everyone/Linear-Regression-App'}) 🚀 ")
-st.markdown(f"####  Feel free to contribute to the app and give a ⭐️")
+st.markdown("Nina Sukonrat, Yinyi Feng, Sayuri Hadge")
+st.markdown(f"####  Link to Project Website [here]({'https://github.com/sayuh07/SpotifyTop50'}) 🚀 ")
 
 
 def image(src_as_string, **style):
@@ -895,14 +893,3 @@ def layout(*args):
 
     st.markdown(str(foot), unsafe_allow_html=True)
 
-def footer2():
-    myargs = [
-        "👨🏼‍💻 Made by ",
-        link("https://github.com/NYU-DS-4-Everyone", "NYU - Professor Gaëtan Brison"),
-        "🚀"
-    ]
-    layout(*myargs)
-
-
-if __name__ == "__main__":
-    footer2()
