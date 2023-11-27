@@ -394,13 +394,14 @@ completeness= round(sum(nonmissing)/len(df),2)
 if app_mode == 'Visualization 📊':
     st.markdown("# :violet[Visualization 📊]")
     select_dataset =  st.sidebar.selectbox('💾 Select Dataset',DATA_SELECT[model_mode])
-    select_dataset, df = get_dataset(select_dataset)
+    #select_dataset, df = get_dataset(select_dataset)
+    select_dataset, df = get_dataset("music.csv")
     list_variables = df.columns
 
     symbols = st.multiselect("Select two variables",list_variables,["Energy", "Danceability"] )
    
 
-    tab1, tab2, tab3, tab4= st.tabs(["Bar Chart 📊","Line Chart 📈","Correlation ⛖","Pairplot 🗠"])  
+    tab1, tab2, tab3, tab4= st.tabs(["Bar Chart 📊","Line Chart 📈","Correlation ⛖","Pairplot"])  
     #tab1, tab2= st.tabs(["Line Chart","📈 Correlation"])    
     
     #tab1 in visualisation
