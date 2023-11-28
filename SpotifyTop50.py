@@ -400,7 +400,7 @@ if app_mode == 'Visualization 📊':
     df = pd.read_csv("music.csv")
     list_variables = df.columns
 
-    symbols = st.multiselect("Select two variables",list_variables,["Energy", "Danceability] )
+    symbols = st.multiselect("Select two variables",list_variables,["Energy", "Danceability"] )
    
 
     tab1, tab2, tab3, tab4= st.tabs(["Bar Chart 📊","Line Chart 📈","Correlation ⛖","Pairplot"])  
