@@ -481,7 +481,7 @@ if app_mode == 'Prediction 🌠':
         if st.button("Show ML Code 👀"):
         code = '''X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)'''
         code1= '''lm = LinearRegression()
-lm.fit(X_train,y_train)'''
+        lm.fit(X_train,y_train)'''
         code2 = '''predictions = lm.predict(X_test)'''
         st.code(code, language='python')
         st.code(code1, language='python')
@@ -491,7 +491,7 @@ lm.fit(X_train,y_train)'''
         df = df.drop(['Popularity','Date','Acousticness','duration','Energy','Instrumentalness','Key','Liveness','Loudness','Mode','Speechiness','Tempo','TSignature','Positiveness'],axis=1)
         code = '''X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)'''
         code1= '''lm = LogisticRegression()
-lm.fit(X_train,y_train)'''
+        lm.fit(X_train,y_train)'''
         code2 = '''predictions = lm.predict(X_test)'''
         st.code(code, language='python')
         st.code(code1, language='python')
