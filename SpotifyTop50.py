@@ -477,7 +477,7 @@ if app_mode == 'Prediction 🌠':
 
     if model_mode == 'Linear Regression':
         st.title("Linear Regression Lab 🧪")
-        df = df.drop(['Popularity','Danceability','Acousticness','duration','Energy','Instrumentalness','Key','Liveness','Loudness','Mode','Speechiness','Tempo','TSignature','Positiveness'],axis=1)
+        df = df.drop(['Country','Track Name','Artist Name','Album Name','Date','Markets'],axis=1)
         
     # converting data
     # if select_dataset == "Student Score 💯":
