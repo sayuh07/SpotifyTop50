@@ -103,6 +103,7 @@ def get_dataset(select_dataset):
     if "Spotify Top 50 🎼" in select_dataset:
         df = pd.read_csv("music.csv")
         df = df.dropna()
+        df = df.drop(['Unnamed: 0'], axis=1)
         return select_dataset, df
 
 
@@ -116,7 +117,7 @@ MODELS = {
     "Logistic Regression": LogisticRegression 
 }
 target_variable = {
-    "Spotify Top 50 🎼": "Danceability"
+    "Spotify Top 50 🎼": "Popularity"
 }
 
 #image_header = Image.open('./images/Linear-Regression1.webp')
@@ -488,8 +489,8 @@ if app_mode == 'Prediction 🌠':
             st.code(code2, language='python')
     elif model_mode == 'Logistic Regression':
         st.title("Logistic Regression Lab 🧪")
-        df = df.drop(['Popularity','Date','Acousticness','duration','Energy','Instrumentalness','Key','Liveness','Loudness','Mode','Speechiness','Tempo','TSignature','Positiveness'],axis=1)
-        #df = df.drop(['Country','Track Name','Artist Name','Album Name','Date','Markets'],axis=1)
+        # df = df.drop(['Popularity','Date','Acousticness','duration','Energy','Instrumentalness','Key','Liveness','Loudness','Mode','Speechiness','Tempo','TSignature','Positiveness'],axis=1)
+        df = df.drop(['Country','Track Name','Artist Name','Album Name','Date','Markets'],axis=1)
         if st.button("Show ML Code 👀"):
             code = '''X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)'''
             code1= '''lm = LogisticRegression()
