@@ -475,27 +475,31 @@ if app_mode == 'Prediction 🌠':
     select_dataset, df = get_dataset(select_ds)
     list_variables = target_variable[select_ds]
 
+    if model_mode == 'Linear Regression':
+        st.title("Linear Regression Lab 🧪")
+        df = df.drop(['Popularity','Danceability','Acousticness','duration','Energy','Instrumentalness','Key','Liveness','Loudness','Mode','Speechiness','Tempo','TSignature','Positiveness'],axis=1)
+        
     # converting data
-    if select_dataset == "Student Score 💯":
-        # Use apply with a lambda function to map values
-        df['Extracurricular Activities'] = df['Extracurricular Activities'].apply(lambda x: 1 if x == 'Yes' else 0)
-
-    elif select_dataset == "Income 💵":
-        df = pd.get_dummies(df, columns=['education'], drop_first=True)
-        df = df.drop(['workclass','occupation','education.num','relationship','race','native.country'],axis=1)
-        columns_to_dummy = ['marital.status', 'sex']
-        df = pd.get_dummies(df, columns=columns_to_dummy, drop_first=True)
-        std = StandardScaler()
-        mms = MinMaxScaler()
-        columns_to_scaler = ['capital.gain', 'capital.loss', 'hours.per.week']
-        df[columns_to_scaler] = std.fit_transform(df[columns_to_scaler]) 
-        income_map = {'<=50K': 1, '>50K': 0}
-        df['income'] = df['income'].map(income_map)
+    # if select_dataset == "Student Score 💯":
+    #     # Use apply with a lambda function to map values
+    #     df['Extracurricular Activities'] = df['Extracurricular Activities'].apply(lambda x: 1 if x == 'Yes' else 0)
+        
+    # elif select_dataset == "Income 💵":
+    #     df = pd.get_dummies(df, columns=['education'], drop_first=True)
+    #     df = df.drop(['workclass','occupation','education.num','relationship','race','native.country'],axis=1)
+    #     columns_to_dummy = ['marital.status', 'sex']
+    #     df = pd.get_dummies(df, columns=columns_to_dummy, drop_first=True)
+    #     std = StandardScaler()
+    #     mms = MinMaxScaler()
+    #     columns_to_scaler = ['capital.gain', 'capital.loss', 'hours.per.week']
+    #     df[columns_to_scaler] = std.fit_transform(df[columns_to_scaler]) 
+    #     income_map = {'<=50K': 1, '>50K': 0}
+    #     df['income'] = df['income'].map(income_map)
     
-    elif select_dataset == "Titanic 🛳️":
-        columns_to_dummy = ['embarked', 'sex','class','alive']
-        df = pd.get_dummies(df, columns=columns_to_dummy, drop_first=True)
-        df = df.drop('adult_male',axis=1)
+    # elif select_dataset == "Titanic 🛳️":
+    #     columns_to_dummy = ['embarked', 'sex','class','alive']
+    #     df = pd.get_dummies(df, columns=columns_to_dummy, drop_first=True)
+    #     df = df.drop('adult_male',axis=1)
 
 
     #choose the dependent variable
