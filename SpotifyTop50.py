@@ -117,7 +117,9 @@ MODELS = {
     "Logistic Regression": LogisticRegression 
 }
 target_variable = {
-    "Spotify Top 50 🎼": ["Popularity", "Danceability", "Energy"]
+    "Spotify Top 50 🎼": "Popularity",
+    "Spotify Top 50 🎼": "Danceability",
+    "Spotify Top 50 🎼": "Energy"
 }
 
 #image_header = Image.open('./images/Linear-Regression1.webp')
