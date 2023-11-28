@@ -551,6 +551,7 @@ if app_mode == 'Prediction 🌠':
     def predict(target_choice, train_size, new_df,feature_choice):
         #independent variables / explanatory variables
         #choosing column for target
+        print(feature_choice)
         new_df2 = new_df[[list(feature_choice)]]
         x =  new_df2
         y = df[target_choice]
