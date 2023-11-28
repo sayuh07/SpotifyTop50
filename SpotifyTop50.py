@@ -480,7 +480,7 @@ if app_mode == 'Prediction 🌠':
         df = df.drop(['Country','Track Name','Artist Name','Album Name','Date','Markets'],axis=1)
     elif model_mode == 'Logistic Regression':
         st.title("Logistic Regression Lab 🧪")
-        df = df.drop(['Popularity','Date','Acousticness','duration','Energy','Instrumentalness','Key','Liveness','Loudness','Mode','Speechiness','Tempo','TSignature','Positiveness', 'Country'],axis=1)
+        df = df.drop(['Popularity','Date','Acousticness','duration','Energy','Instrumentalness','Key','Liveness','Loudness','Mode','Speechiness','Tempo','TSignature','Positiveness'],axis=1)
         
     # converting data
     # if select_dataset == "Student Score 💯":
