@@ -478,9 +478,24 @@ if app_mode == 'Prediction 🌠':
     if model_mode == 'Linear Regression':
         st.title("Linear Regression Lab 🧪")
         df = df.drop(['Country','Track Name','Artist Name','Album Name','Date','Markets'],axis=1)
+        if st.button("Show ML Code 👀"):
+        code = '''X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)'''
+        code1= '''lm = LinearRegression()
+lm.fit(X_train,y_train)'''
+        code2 = '''predictions = lm.predict(X_test)'''
+        st.code(code, language='python')
+        st.code(code1, language='python')
+        st.code(code2, language='python')
     elif model_mode == 'Logistic Regression':
         st.title("Logistic Regression Lab 🧪")
         df = df.drop(['Popularity','Date','Acousticness','duration','Energy','Instrumentalness','Key','Liveness','Loudness','Mode','Speechiness','Tempo','TSignature','Positiveness'],axis=1)
+        code = '''X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)'''
+        code1= '''lm = LogisticRegression()
+lm.fit(X_train,y_train)'''
+        code2 = '''predictions = lm.predict(X_test)'''
+        st.code(code, language='python')
+        st.code(code1, language='python')
+        st.code(code2, language='python')
         
     # converting data
     # if select_dataset == "Student Score 💯":
@@ -520,14 +535,14 @@ if app_mode == 'Prediction 🌠':
     feature_choice = st.multiselect("Select Explanatory Variables", list_var)
     train_size = st.sidebar.number_input("Train Set Size", min_value=0.00, step=0.01, max_value=1.00, value=0.70)
     
-    if st.button("Show ML Code 👀"):
-        code = '''X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)'''
-        code1= '''lm = LinearRegression()
-lm.fit(X_train,y_train)'''
-        code2 = '''predictions = lm.predict(X_test)'''
-        st.code(code, language='python')
-        st.code(code1, language='python')
-        st.code(code2, language='python')
+#     if st.button("Show ML Code 👀"):
+#         code = '''X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)'''
+#         code1= '''lm = LinearRegression()
+# lm.fit(X_train,y_train)'''
+#         code2 = '''predictions = lm.predict(X_test)'''
+#         st.code(code, language='python')
+#         st.code(code1, language='python')
+#         st.code(code2, language='python')
     
     @st.cache_resource
     def predict(target_choice,train_size, new_df,feature_choice):
