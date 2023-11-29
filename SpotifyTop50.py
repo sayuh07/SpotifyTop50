@@ -378,7 +378,7 @@ completeness= round(sum(nonmissing)/len(df),2)
 
     st.markdown("### 04 - Complete Report")
 
-    st.button("Generate Report")
+    #st.button("Generate Report")
     if st.button("Generate Report"):
         # pr = df.profile_report()
         # export=pr.to_html()
