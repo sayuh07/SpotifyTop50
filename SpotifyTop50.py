@@ -379,15 +379,15 @@ completeness= round(sum(nonmissing)/len(df),2)
     st.markdown("### 04 - Complete Report")
 
     st.button("Generate Report")
-    #if st.button("Generate Report"):
-        # pr = df.profile_report()
-        # export=pr.to_html()
-        # st.download_button(label="Download Full Report", data=export,file_name='report.html')
-        #st.markdown(pr.to_html(), unsafe_allow_html=True)
-        #st.write(pr)
-        # prof = pandas_profiling.ProfileReport(df, explorative=True, minimal=True)
+    if st.button("Generate Report"):
+        pr = df.profile_report()
+        export=pr.to_html()
+        st.download_button(label="Download Full Report", data=export,file_name='report.html')
+        st.markdown(pr.to_html(), unsafe_allow_html=True)
+        st.write(pr)
+        prof = pandas_profiling.ProfileReport(df, explorative=True, minimal=True)
 
-        # output = prof.to_file('output.html', silent=False)
+        output = prof.to_file('output.html', silent=False)
         
     
     
