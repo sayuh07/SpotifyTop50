@@ -384,12 +384,12 @@ completeness= round(sum(nonmissing)/len(df),2)
         # export=pr.to_html()
         pr = df.profile_report(minimal=True)
         st_profile_report(pr)
-        st.download_button(label="Download Full Report", data=export,file_name='report.html')
-        st.markdown(pr.to_html(), unsafe_allow_html=True)
-        st.write(pr)
-        prof = pandas_profiling.ProfileReport(df, explorative=True, minimal=True)
+        # st.download_button(label="Download Full Report", data=export,file_name='report.html')
+        # st.markdown(pr.to_html(), unsafe_allow_html=True)
+        # st.write(pr)
+        # prof = pandas_profiling.ProfileReport(df, explorative=True, minimal=True)
 
-        output = prof.to_file('output.html', silent=False)
+        # output = prof.to_file('output.html', silent=False)
         
     
     
