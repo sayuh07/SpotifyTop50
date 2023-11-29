@@ -33,9 +33,11 @@ from htbuilder import HtmlElement, div, hr, a, p, img, styles
 from htbuilder.units import percent, px
 import pandas_profiling
 
+from codecarbon import EmissionsTracker
 
-
-
+tracker = EmissionsTracker()
+tracker.start()
+tracker.stop()
 
 # setting up the page streamlit
 
