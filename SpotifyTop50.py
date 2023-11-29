@@ -380,8 +380,10 @@ completeness= round(sum(nonmissing)/len(df),2)
 
     st.button("Generate Report")
     if st.button("Generate Report"):
-        pr = df.profile_report()
-        export=pr.to_html()
+        # pr = df.profile_report()
+        # export=pr.to_html()
+        pr = df.profile_report(minimal=True)
+        st_profile_report(pr)
         st.download_button(label="Download Full Report", data=export,file_name='report.html')
         st.markdown(pr.to_html(), unsafe_allow_html=True)
         st.write(pr)
