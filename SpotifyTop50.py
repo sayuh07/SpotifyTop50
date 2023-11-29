@@ -16,6 +16,7 @@ from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import StandardScaler, MinMaxScaler 
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
+from streamlit_pandas_profiling import st_profile_report
 
 from sklearn.datasets import load_iris, load_wine, load_diabetes
 from sklearn.model_selection import train_test_split
@@ -380,16 +381,16 @@ completeness= round(sum(nonmissing)/len(df),2)
 
     #st.button("Generate Report")
     if st.button("Generate Report"):
-        pr = df.profile_report()
-        export=pr.to_html()
-        # pr = df.profile_report(minimal=True)
-        # st_profile_report(pr)
-        st.download_button(label="Download Full Report", data=export,file_name='report.html')
-        st.markdown(pr.to_html(), unsafe_allow_html=True)
-        st.write(pr)
-        prof = pandas_profiling.ProfileReport(df, explorative=True, minimal=True)
+        # pr = df.profile_report()
+        # export=pr.to_html()
+        pr = df.profile_report(minimal=True)
+        st_profile_report(pr)
+        # st.download_button(label="Download Full Report", data=export,file_name='report.html')
+        # st.markdown(pr.to_html(), unsafe_allow_html=True)
+        # st.write(pr)
+        # prof = pandas_profiling.ProfileReport(df, explorative=True, minimal=True)
 
-        output = prof.to_file('output.html', silent=False)
+        # output = prof.to_file('output.html', silent=False)
         
     
     
