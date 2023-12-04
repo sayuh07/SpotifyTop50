@@ -883,10 +883,7 @@ if app_mode == 'Summary Wrapped 🎁':
     html = """
     <style>
     .spotifyImage: {
-        position: absolute;
-        top: 0;
-        left: 0;
-        background: url("https://github.com/sayuh07/SpotifyTop50/blob/main/Summary-Full.png?raw=true");
+        background: url("https://github.com/sayuh07/SpotifyTop50/blob/main/Summary-Transparent.png?raw=true");
         background-size: contain;
         background-repeat: no-repeat;
         width: 100%;
