@@ -117,7 +117,9 @@ DATA_SELECT = {
 
 MODELS = {
     "Linear Regression": LinearRegression,
-    "Logistic Regression": LogisticRegression 
+    "Logistic Regression": LogisticRegression ,
+    "K-Nearest Neighbors (KNN)": KNeighborsRegressor,
+    "Random Forest": RandomForestRegressor
 }
 target_variable = {
     "Spotify Top 50 🎼": "Popularity"
@@ -128,12 +130,12 @@ target_variable = {
 # page 1 
 if app_mode == 'Introduction 🏃':
     if model_mode == 'Linear Regression':
-        st.title("Linear Regression Lab 🧪")
+        st.title("Linear Regression 🧪")
 
 #image_header = Image.open('./images/Logistic-Regression.jpg')
 #st.image(image_header, width=600)
     elif model_mode == 'Logistic Regression':
-        st.title("Logistic Regression Lab 🧪") 
+        st.title("Logistic Regression 🧪") 
 
     select_data =  st.sidebar.selectbox('💾 Select Dataset',DATA_SELECT[model_mode])
     select_dataset, df = get_dataset(select_data)
@@ -452,7 +454,7 @@ if app_mode == 'Visualization 📊':
     #     height=14, sizes=(20, 200), size_norm=(-.2, .8))
 
 
-    tab4.subheader("pairplot Chart 🗠")
+    tab4.subheader("Pairplot Chart 🗠")
     tab4.write(" ")
     if tab4.button("Show pairplot Chart Code"): 
         code = '''sns.pairplot(df2)'''
@@ -504,28 +506,38 @@ if app_mode == 'Prediction 🌠':
             st.code(code, language='python')
             st.code(code1, language='python')
             st.code(code2, language='python')
-        
-    # converting data
-    # if select_dataset == "Student Score 💯":
-    #     # Use apply with a lambda function to map values
-    #     df['Extracurricular Activities'] = df['Extracurricular Activities'].apply(lambda x: 1 if x == 'Yes' else 0)
-        
-    # elif select_dataset == "Income 💵":
-    #     df = pd.get_dummies(df, columns=['education'], drop_first=True)
-    #     df = df.drop(['workclass','occupation','education.num','relationship','race','native.country'],axis=1)
-    #     columns_to_dummy = ['marital.status', 'sex']
-    #     df = pd.get_dummies(df, columns=columns_to_dummy, drop_first=True)
-    #     std = StandardScaler()
-    #     mms = MinMaxScaler()
-    #     columns_to_scaler = ['capital.gain', 'capital.loss', 'hours.per.week']
-    #     df[columns_to_scaler] = std.fit_transform(df[columns_to_scaler]) 
-    #     income_map = {'<=50K': 1, '>50K': 0}
-    #     df['income'] = df['income'].map(income_map)
+    elif model_mode == 'K-Nearest Neighbors (KNN)':
+        st.title("K-Nearest Neighbors (KNN) Lab 🧪")
+        df = df.drop(['Country','Track Name','Artist Name','Album Name','Date','Markets'],axis=1)
+        if st.button("Show ML Code 👀"):
+            code = '''scaler = StandardScaler()'''
+            code1 = '''scaler.fit(df)'''
+            code2 = '''scaled_features = scaler.transform(df)'''
+            code3 = '''X_train, X_test, y_train, y_test = train_test_split(scaled_features,df['Popularity'],test_size=0.30)'''
+            code4 = '''knn = KNeighborsRegressor(n_neighbors=30)'''
+            code5 = '''knn.fit(X_train, y_train)'''
+            code6 = '''predictions = knn.predict(X_test)'''
+            st.code(code, language='python')
+            st.code(code1, language='python')
+            st.code(code2, language='python')
+            st.code(code3, language='python')
+            st.code(code4, language='python')
+            st.code(code5, language='python')
+            st.code(code6, language='python')
+
+    elif model_mode == 'Random Forest':
+        st.title("Random Forest Lab 🧪")
+        df = df.drop(['Country','Track Name','Artist Name','Album Name','Date','Markets'],axis=1)
+        if st.button("Show ML Code 👀"):
+            code = '''X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.30)'''
+            code1 = '''rf = RandomForestClassifier(criterion="entropy", n_estimators=150, max_depth=15)'''
+            code2 = '''rf.fit(X_train, y_train)'''
+            code3 = '''pred = rf.predict(X_test)'''
+            st.code(code, language='python')
+            st.code(code1, language='python')
+            st.code(code2, language='python')
+            st.code(code3, language='python')
     
-    # elif select_dataset == "Titanic 🛳️":
-    #     columns_to_dummy = ['embarked', 'sex','class','alive']
-    #     df = pd.get_dummies(df, columns=columns_to_dummy, drop_first=True)
-    #     df = df.drop('adult_male',axis=1)
 
 
     #choose the dependent variable
@@ -564,11 +576,14 @@ if app_mode == 'Prediction 🌠':
         col1.write(x.head(25))
         col2.subheader("Target Column top 25")
         col2.write(y.head(25))
-        #X = df[feature_choice].copy()
-        #y = df['target'].copy()
-        #X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=train_size)
-        X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)
+        
         lm = MODELS[model_mode]()
+        if model_mode == 'K-Nearest Neighbors (KNN)':
+            scaler = StandardScaler()
+            x = scaler.fit_transform(new_df2)
+        elif model_mode == 'Random Forest':
+            lm = RandomForestRegressor(criterion="entropy", n_estimators=150, max_depth=15)
+        X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)
         model = lm.fit(X_train,y_train)
         predictions = lm.predict(X_test)
         return lm,X_train,y_test,predictions,model
@@ -650,15 +665,18 @@ if app_mode == 'Prediction 🌠':
         st.write("2) The Mean Absolute Error of model is:", np.round(mae,2))
         st.write("3) MSE: ", np.round(mse))
         st.write("4) The R-Square score of the model is " , np.round(r2))
-    else:
-        acc = accuracy_score(y_test, predictions)
-        st.write("1) Model Accuracy (in %):", np.round(acc*100,2))
-        f1_score = f1_score(y_test, predictions, average='weighted')
-        st.write("2) Model F1 Score (in %):", np.round(f1_score*100,2))
-        precision_score = precision_score(y_test, predictions, average='weighted')
-        st.write("3) Model Precision Score (in %):", np.round(precision_score*100,2))
-        recall_score = recall_score(y_test, predictions, average='weighted')
-        st.write("4) Model Recall Score (in %):", np.round(recall_score*100,2))
+    elif model_mode == 'K-Nearest Neighbors (KNN)':
+        st.write("1) The Mean Absolute Error of model is:", np.round(mt.mean_absolute_error(y_test, predictions ),2))
+        st.write("2) MSE: ", np.round(mt.mean_squared_error(y_test, predictions),2))
+        st.write("3) The R-Square score of the model is ",np.round(np.sqrt(mt.mean_squared_error(y_test, predictions)),2))
+        # acc = accuracy_score(y_test, predictions)
+        # st.write("4) Model Accuracy (in %):", np.round(acc*100,2))
+    elif model_mode == "Random Forest":
+        st.write("1) The Mean Absolute Error of model is:", np.round(mt.mean_absolute_error(y_test, predictions ),2))
+        st.write("2) MSE: ", np.round(mt.mean_squared_error(y_test, predictions),2))
+        st.write("3) The R-Square score of the model is ",np.round(np.sqrt(mt.mean_squared_error(y_test, predictions)),2))
+        # acc = accuracy_score(y_test, predictions)
+        # st.write("4) Model Accuracy (in %):", np.round(acc*100,2))
 
     @st.cache_resource
     def download_file():
