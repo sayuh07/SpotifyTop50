@@ -882,6 +882,9 @@ if app_mode == 'Summary Wrapped 🎁':
     html = """
     <style>
     .spotifyImage: {
+        padding-top: 66.64%; /* (img-height / img-width * container-width) */
+                /* (853 / 1280 * 100) */
+        
         background: url("https://github.com/sayuh07/SpotifyTop50/blob/main/Summary-Transparent.png?raw=true");
         background-size: contain;
         background-repeat: no-repeat;
