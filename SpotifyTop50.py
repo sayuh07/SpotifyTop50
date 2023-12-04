@@ -34,6 +34,13 @@ from htbuilder import HtmlElement, div, hr, a, p, img, styles
 from htbuilder.units import percent, px
 import pandas_profiling
 
+from sklearn import datasets
+from sklearn.decomposition import PCA
+from sklearn.metrics import classification_report,confusion_matrix
+from sklearn.preprocessing import StandardScaler
+from sklearn import metrics
+from sklearn.neighbors import KNeighborsRegressor
+
 from codecarbon import EmissionsTracker
 
 tracker = EmissionsTracker()
