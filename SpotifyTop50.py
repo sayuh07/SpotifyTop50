@@ -856,18 +856,50 @@ if app_mode == 'Chatbot 🤖':
                 counter_placeholder.write(f"Total cost of this conversation: ${st.session_state['total_cost']:.5f}")
 
 if app_mode == 'Summary Wrapped 🎁':
+    # st.markdown(
+    # """
+    # <style>
+    # .stApp {
+    #     background: url("https://github.com/sayuh07/SpotifyTop50/blob/main/Summary-Full.png?raw=true");
+    #     background-size: 100vw auto;
+    #     background-repeat:   no-repeat;
+    #     background-position: center center;
+    # }
+    # </style>
+    # """,
+    # unsafe_allow_html=True)
+
     st.markdown(
     """
     <style>
     .stApp {
-        background: url("https://github.com/sayuh07/SpotifyTop50/blob/main/Summary-Full.png?raw=true");
-        background-size: 100vw auto;
-        background-repeat:   no-repeat;
-        background-position: center center;
+        background-color: #6A00BA;
+        position: relative;
     }
     </style>
     """,
     unsafe_allow_html=True)
+
+    html = """
+    <style>
+    .spotifyImage: {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: url("https://github.com/sayuh07/SpotifyTop50/blob/main/Summary-Full.png?raw=true");
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 0;
+    }
+
+    </style>
+    <div class="spotifyImage"/>
+    """
+    st.components.v1.html(html)
+
+
+    
     
 if __name__=='__main__':
     main()
