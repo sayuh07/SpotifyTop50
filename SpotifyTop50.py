@@ -165,7 +165,7 @@ if app_mode == 'Introduction 🏃':
             <style>
                 div[data-testid="column"]:nth-of-type(1)
                 {
-                    border:1px solid blue;
+                    border:1px solid black;
                     text-align: center;
                     font-family: bariol;
                     background-color: green;
@@ -173,49 +173,58 @@ if app_mode == 'Introduction 🏃':
 
                 div[data-testid="column"]:nth-of-type(2)
                 {
-                    border:1px solid blue;
+                    border:1px solid black;
                     text-align: center;
+                    background-color: green;
                    
                 }
                 div[data-testid="column"]:nth-of-type(3)
                 {
-                    border:1px solid blue;
+                    border:1px solid black;
                     text-align: center;
+                    background-color: green;
                 }
                 div[data-testid="column"]:nth-of-type(4)
                 {
-                    border:1px solid blue;
+                    border:1px solid black;
                     text-align: center;
+                    background-color: green;
                 } 
                 div[data-testid="column"]:nth-of-type(5)
                 {
-                    border:1px solid blue;
+                    border:1px solid black;
                     text-align: center;
+                    background-color: green;
                 } 
                 div[data-testid="column"]:nth-of-type(6)
                 {
-                    border:1px solid blue;
+                    border:1px solid black;
                     text-align: center;
+                    background-color: green;
                 } 
                 div[data-testid="column"]:nth-of-type(7)
                 {
-                    border:1px solid blue;
+                    border:1px solid black;
                     text-align: center;
+                    background-color: green;
                 } 
                 div[data-testid="column"]:nth-of-type(8)
                 {
-                    border:1px solid blue;
+                    border:1px solid black;
                     text-align: center;
+                    background-color: green;
                 } 
                 div[data-testid="column"]:nth-of-type(9)
                 {
-                    border:1px solid blue;
+                    border:1px solid black;
                     text-align: center;
+                    background-color: green;
                 } 
                 div[data-testid="column"]:nth-of-type(10)
                 {
-                    border:1px solid blue;
+                    border:1px solid black;
                     text-align: center;
+                    background-color: green;
                 } 
             </style>
             """,unsafe_allow_html=True
