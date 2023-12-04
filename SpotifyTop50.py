@@ -878,6 +878,18 @@ if app_mode == 'Summary Wrapped 🎁':
     </style>
     """,
     unsafe_allow_html=True)
+
+    margins_css = """
+    <style>
+        .main > div {
+            padding-left: 0rem;
+            padding-right: 0rem;
+        }
+    </style>
+    """
+
+    st.markdown(margins_css, unsafe_allow_html=True)
+
     st.image("https://github.com/sayuh07/SpotifyTop50/blob/main/Summary-Transparent.png?raw=true")
     # html = """
     # <style>
