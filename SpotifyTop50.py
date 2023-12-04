@@ -861,9 +861,7 @@ if app_mode == 'Summary Wrapped 🎁':
     <style>
     .stApp {
         background: url("https://github.com/sayuh07/SpotifyTop50/blob/main/Summary-Full.png?raw=true");
-        background-size:     cover;
-        background-repeat:   no-repeat;
-        background-position: center center;
+        background-size: auto 100%;
     }
     </style>
     """,
