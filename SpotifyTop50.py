@@ -860,7 +860,7 @@ if app_mode == 'Summary Wrapped 🎁':
     st.markdown(
     """
     <style>
-    body {
+    .stApp {
         background: url("https://github.com/sayuh07/SpotifyTop50/blob/main/Summary-Full.png?raw=true");
         background-size: cover;
     }
