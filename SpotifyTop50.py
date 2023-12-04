@@ -175,56 +175,56 @@ if app_mode == 'Introduction 🏃':
                 {
                     border:1px solid black;
                     text-align: center;
-                    background-color: green;
+                    background-color: #1db954;
                    
                 }
                 div[data-testid="column"]:nth-of-type(3)
                 {
                     border:1px solid black;
                     text-align: center;
-                    background-color: green;
+                    background-color: #1db954;
                 }
                 div[data-testid="column"]:nth-of-type(4)
                 {
                     border:1px solid black;
                     text-align: center;
-                    background-color: green;
+                    background-color: #1db954;
                 } 
                 div[data-testid="column"]:nth-of-type(5)
                 {
                     border:1px solid black;
                     text-align: center;
-                    background-color: green;
+                    background-color: #1db954;
                 } 
                 div[data-testid="column"]:nth-of-type(6)
                 {
                     border:1px solid black;
                     text-align: center;
-                    background-color: green;
+                    background-color: #1db954;
                 } 
                 div[data-testid="column"]:nth-of-type(7)
                 {
                     border:1px solid black;
                     text-align: center;
-                    background-color: green;
+                    background-color: #1db954;
                 } 
                 div[data-testid="column"]:nth-of-type(8)
                 {
                     border:1px solid black;
                     text-align: center;
-                    background-color: green;
+                    background-color: #1db954;
                 } 
                 div[data-testid="column"]:nth-of-type(9)
                 {
                     border:1px solid black;
                     text-align: center;
-                    background-color: green;
+                    background-color: #1db954;
                 } 
                 div[data-testid="column"]:nth-of-type(10)
                 {
                     border:1px solid black;
                     text-align: center;
-                    background-color: green;
+                    background-color: #1db954;
                 } 
             </style>
             """,unsafe_allow_html=True
@@ -251,65 +251,65 @@ if app_mode == 'Introduction 🏃':
         col10.markdown(" **Duration** ")
         col10.markdown("Duration in ms of the song")
         
-        st.markdown(
-            """
-            <style>
-                div[data-testid="column"]:nth-of-type(1)
-                {
-                    border:1px solid blue;
-                    text-align: center;
-                    font-family: bariol;
-                } 
+        # st.markdown(
+        #     """
+        #     <style>
+        #         div[data-testid="column"]:nth-of-type(1)
+        #         {
+        #             border:1px solid blue;
+        #             text-align: center;
+        #             font-family: bariol;
+        #         } 
 
-                div[data-testid="column"]:nth-of-type(2)
-                {
-                    border:1px solid blue;
-                    text-align: center;
+        #         div[data-testid="column"]:nth-of-type(2)
+        #         {
+        #             border:1px solid blue;
+        #             text-align: center;
                    
-                }
-                div[data-testid="column"]:nth-of-type(3)
-                {
-                    border:1px solid blue;
-                    text-align: center;
-                }
-                div[data-testid="column"]:nth-of-type(4)
-                {
-                    border:1px solid blue;
-                    text-align: center;
-                } 
-                div[data-testid="column"]:nth-of-type(5)
-                {
-                    border:1px solid blue;
-                    text-align: center;
-                } 
-                div[data-testid="column"]:nth-of-type(6)
-                {
-                    border:1px solid blue;
-                    text-align: center;
-                } 
-                div[data-testid="column"]:nth-of-type(7)
-                {
-                    border:1px solid blue;
-                    text-align: center;
-                } 
-                div[data-testid="column"]:nth-of-type(8)
-                {
-                    border:1px solid blue;
-                    text-align: center;
-                } 
-                div[data-testid="column"]:nth-of-type(9)
-                {
-                    border:1px solid blue;
-                    text-align: center;
-                } 
-                div[data-testid="column"]:nth-of-type(10)
-                {
-                    border:1px solid blue;
-                    text-align: center;
-                } 
-            </style>
-            """,unsafe_allow_html=True
-        )
+        #         }
+        #         div[data-testid="column"]:nth-of-type(3)
+        #         {
+        #             border:1px solid blue;
+        #             text-align: center;
+        #         }
+        #         div[data-testid="column"]:nth-of-type(4)
+        #         {
+        #             border:1px solid blue;
+        #             text-align: center;
+        #         } 
+        #         div[data-testid="column"]:nth-of-type(5)
+        #         {
+        #             border:1px solid blue;
+        #             text-align: center;
+        #         } 
+        #         div[data-testid="column"]:nth-of-type(6)
+        #         {
+        #             border:1px solid blue;
+        #             text-align: center;
+        #         } 
+        #         div[data-testid="column"]:nth-of-type(7)
+        #         {
+        #             border:1px solid blue;
+        #             text-align: center;
+        #         } 
+        #         div[data-testid="column"]:nth-of-type(8)
+        #         {
+        #             border:1px solid blue;
+        #             text-align: center;
+        #         } 
+        #         div[data-testid="column"]:nth-of-type(9)
+        #         {
+        #             border:1px solid blue;
+        #             text-align: center;
+        #         } 
+        #         div[data-testid="column"]:nth-of-type(10)
+        #         {
+        #             border:1px solid blue;
+        #             text-align: center;
+        #         } 
+        #     </style>
+        #     """,unsafe_allow_html=True
+        # )
         col11, col12, col13,col14,col15,col16,col17,col18,col19,col20 = st.columns(10)
         col11.markdown(" **Energy** ")
         col11.markdown("Perceptual measure of intensity and activity")
