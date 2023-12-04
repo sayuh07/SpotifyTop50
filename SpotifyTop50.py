@@ -856,44 +856,23 @@ if app_mode == 'Chatbot 🤖':
                 counter_placeholder.write(f"Total cost of this conversation: ${st.session_state['total_cost']:.5f}")
 
 if app_mode == 'Summary Wrapped 🎁':
-    st.markdown("# :green[Summary Wrapped 🎁]")
     st.markdown(
     """
     <style>
     .stApp {
-        background: #6A00BA;
+        background: url("https://github.com/sayuh07/SpotifyTop50/blob/main/Summary-Full.png?raw=true");
+        background-size:     cover;
+        background-repeat:   no-repeat;
+        background-position: center center;
     }
     </style>
     """,
     unsafe_allow_html=True)
-    html = """
-    <style>
-    .spotifyImage {
-        background: url("https://github.com/sayuh07/SpotifyTop50/blob/main/Summary-Full.png?raw=true");
-        background-size: fill;
-        width: 100%;
-        height: 6321px;
-    }
-    </style>
-    <div class="spotifyImage"></div>
-    """
-    st.components.v1.html(html, width=1448, height=6321, scrolling=False)
-
-
-    # st.markdown(
-    # """
-    # <style>
-    # .stApp {
-    #     background: url("https://github.com/sayuh07/SpotifyTop50/blob/main/Summary-Full.png?raw=true");
-    #     background-size: cover;
-    # }
-    # </style>
-    # """,
-    # unsafe_allow_html=True)
     
 if __name__=='__main__':
     main()
 
+if app_mode != 'Summary Wrapped 🎁':
 st.markdown(" ")
 st.markdown("### 👨🏼‍💻 **App Contributors:** ")
 st.markdown("Nina Sukonrat, Yinyi Feng, Sayuri Hadge")
