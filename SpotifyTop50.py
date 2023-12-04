@@ -873,10 +873,10 @@ if __name__=='__main__':
     main()
 
 if app_mode != 'Summary Wrapped 🎁':
-st.markdown(" ")
-st.markdown("### 👨🏼‍💻 **App Contributors:** ")
-st.markdown("Nina Sukonrat, Yinyi Feng, Sayuri Hadge")
-st.markdown(f"####  Link to Project Website [here]({'https://github.com/sayuh07/SpotifyTop50'}) 🚀 ")
+    st.markdown(" ")
+    st.markdown("### 👨🏼‍💻 **App Contributors:** ")
+    st.markdown("Nina Sukonrat, Yinyi Feng, Sayuri Hadge")
+    st.markdown(f"####  Link to Project Website [here]({'https://github.com/sayuh07/SpotifyTop50'}) 🚀 ")
 
 
 def image(src_as_string, **style):
