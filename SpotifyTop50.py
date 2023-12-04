@@ -119,7 +119,9 @@ def get_dataset(select_dataset):
 
 DATA_SELECT = {
     "Linear Regression": ["Spotify Top 50 🎼"],
-    "Logistic Regression": ["Spotify Top 50 🎼"]
+    "Logistic Regression": ["Spotify Top 50 🎼"],
+    "K-Nearest Neighbors (KNN)": ["Spotify Top 50 🎼"],
+    "Random Forest": ["Spotify Top 50 🎼"]
 }
 
 MODELS = {
@@ -142,7 +144,14 @@ if app_mode == 'Introduction 🏃':
 #image_header = Image.open('./images/Logistic-Regression.jpg')
 #st.image(image_header, width=600)
     elif model_mode == 'Logistic Regression':
-        st.title("Logistic Regression 🧪") 
+        st.title("Logistic Regression 🧪")
+
+    elif model_mode == 'K-Nearest Neighbors (KNN)':
+        st.title("K-Nearest Neighbors (KNN) 🧪")
+
+    elif model_mode == 'Random Forest':
+        st.title("Random Forest 🧪")
+    
 
     select_data =  st.sidebar.selectbox('💾 Select Dataset',DATA_SELECT[model_mode])
     select_dataset, df = get_dataset(select_data)
