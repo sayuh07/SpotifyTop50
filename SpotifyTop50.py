@@ -861,7 +861,7 @@ if app_mode == 'Summary Wrapped 🎁':
     """
     <style>
     .stApp {
-        background-color: 6A00BA;
+        background: 6A00BA;
     }
     </style>
     """,
