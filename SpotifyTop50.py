@@ -43,7 +43,7 @@ tracker.stop()
 # setting up the page streamlit
 
 st.set_page_config(
-    page_title="Linear Regression App ", layout="wide", page_icon="./images/linear-regression.png"
+    page_title="Spotify Top 50 App ", layout="wide", page_icon="./images/linear-regression.png"
 )
 
 
@@ -856,17 +856,27 @@ if app_mode == 'Chatbot 🤖':
                 counter_placeholder.write(f"Total cost of this conversation: ${st.session_state['total_cost']:.5f}")
 
 if app_mode == 'Summary Wrapped 🎁':
+    st.markdown(# :violet[Summary Wrapped 🎁])
     st.markdown(
     """
-    # :violet[Summary Wrapped 🎁]
     <style>
-    .reportview-container {
-        background: url("https://github.com/sayuh07/SpotifyTop50/blob/main/Summary-Full.png?raw=true")
+    body {
+        background: url("https://github.com/sayuh07/SpotifyTop50/blob/main/Summary-Full.png?raw=true");
+        background-size: cover;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
+
+page_bg_img = '''
+<style>
+body {
+background-image: url("https://images.unsplash.com/photo-1542281286-9e0a16bb7366");
+background-size: cover;
+}
+</style>
+'''
     
 if __name__=='__main__':
     main()
