@@ -49,9 +49,11 @@ tracker.stop()
 
 # setting up the page streamlit
 
+[theme]
+backgroundColor = "#000000"
+
 st.set_page_config(
     page_title="Spotify Top 50 App ", layout="wide", page_icon="./images/linear-regression.png"
-    backgroundColor = "#000000"
 )
 
 
