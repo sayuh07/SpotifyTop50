@@ -856,7 +856,7 @@ if app_mode == 'Chatbot 🤖':
                 counter_placeholder.write(f"Total cost of this conversation: ${st.session_state['total_cost']:.5f}")
 
 if app_mode == 'Summary Wrapped 🎁':
-    st.markdown(# :violet[Summary Wrapped 🎁])
+    st.markdown("# :violet[Summary Wrapped 🎁]")
     st.markdown(
     """
     <style>
@@ -866,8 +866,7 @@ if app_mode == 'Summary Wrapped 🎁':
     }
     </style>
     """,
-    unsafe_allow_html=True
-)
+    unsafe_allow_html=True)
     
 if __name__=='__main__':
     main()
