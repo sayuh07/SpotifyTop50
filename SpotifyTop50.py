@@ -98,7 +98,7 @@ model_mode = st.sidebar.selectbox('🔎 Select Model',['Linear Regression','Logi
     
 
 # get pages
-app_mode = st.sidebar.selectbox('📄 Select Page',['Introduction 🏃','Visualization 📊','Prediction 🌠','Deployment 🚀','Chatbot 🤖'])
+app_mode = st.sidebar.selectbox('📄 Select Page',['Introduction 🏃','Visualization 📊','Prediction 🌠','Deployment 🚀','Chatbot 🤖', 'Summary Wrapped 🎁'])
 
 #load data
 #@st.cache_resource(experimental_allow_widgets=True)
@@ -855,7 +855,19 @@ if app_mode == 'Chatbot 🤖':
                     f"Model used: {st.session_state['model_name'][i]}; Number of tokens: {st.session_state['total_tokens'][i]}; Cost: ${st.session_state['cost'][i]:.5f}")
                 counter_placeholder.write(f"Total cost of this conversation: ${st.session_state['total_cost']:.5f}")
 
-
+if app_mode == 'Summary Wrapped 🎁':
+    st.markdown(
+    """
+    # :violet[Summary Wrapped 🎁]
+    <style>
+    .reportview-container {
+        background: url("https://github.com/sayuh07/SpotifyTop50/blob/main/Summary-Full.png?raw=true")
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+    
 if __name__=='__main__':
     main()
 
