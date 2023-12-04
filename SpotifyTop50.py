@@ -168,7 +168,7 @@ if app_mode == 'Introduction 🏃':
                     border:1px solid black;
                     text-align: center;
                     font-family: bariol;
-                    background-color: green;
+                    background-color: #1db954;
                 } 
 
                 div[data-testid="column"]:nth-of-type(2)
