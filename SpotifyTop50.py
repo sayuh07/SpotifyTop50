@@ -557,7 +557,7 @@ if app_mode == 'Prediction 🌠':
         df = df.drop(['Country','Track Name','Artist Name','Album Name','Date','Markets'],axis=1)
         if st.button("Show ML Code 👀"):
             code = '''X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.30)'''
-            code1 = '''rf = RandomForestClassifier(criterion="entropy", n_estimators=150, max_depth=15)'''
+            code1 = '''rf = RandomForestRegressor(n_estimators=150, max_depth=15)'''
             code2 = '''rf.fit(X_train, y_train)'''
             code3 = '''pred = rf.predict(X_test)'''
             st.code(code, language='python')
@@ -609,7 +609,7 @@ if app_mode == 'Prediction 🌠':
             scaler = StandardScaler()
             x = scaler.fit_transform(new_df2)
         elif model_mode == 'Random Forest':
-            lm = RandomForestRegressor(criterion="entropy", n_estimators=150, max_depth=15)
+            lm = RandomForestRegressor(n_estimators=150, max_depth=15)
         X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)
         model = lm.fit(X_train,y_train)
         predictions = lm.predict(X_test)
