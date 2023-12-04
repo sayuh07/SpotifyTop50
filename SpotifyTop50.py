@@ -857,7 +857,7 @@ if app_mode == 'Chatbot 🤖':
 
 if app_mode == 'Summary Wrapped 🎁':
     st.markdown("# :white[Summary Wrapped 🎁]")
-     st.markdown(
+    st.markdown(
     """
     <style>
     .stApp {
