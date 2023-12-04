@@ -880,20 +880,20 @@ if app_mode == 'Summary Wrapped 🎁':
     """,
     unsafe_allow_html=True)
 
-    html = """
-    <style>
-    .spotifyImage: {
-        background: url("https://github.com/sayuh07/SpotifyTop50/blob/main/Summary-Transparent.png?raw=true");
-        background-size: contain;
-        background-repeat: no-repeat;
-        width: 100%;
-        height: 0;
-    }
+    # html = """
+    # <style>
+    # .spotifyImage: {
+    #     background: url("https://github.com/sayuh07/SpotifyTop50/blob/main/Summary-Transparent.png?raw=true");
+    #     background-size: contain;
+    #     background-repeat: no-repeat;
+    #     width: 100%;
+    #     height: 0;
+    # }
 
-    </style>
-    <div class="spotifyImage"/>
-    """
-    st.components.v1.html(html)
+    # </style>
+    # <div class="spotifyImage"/>
+    # """
+    # st.components.v1.html(html)
 
 
     
