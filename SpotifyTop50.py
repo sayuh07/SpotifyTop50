@@ -487,7 +487,7 @@ if app_mode == 'Visualization 📊':
         tab4.code(code, language='python')
 
     if tab4.button('show pairplot visualisation'):
-        progress_text = "visualisation in progress🛞!!   :red[Please wait🛑]"
+        progress_text = "Visualisation in Progress🛞!!   :Red[Please Wait🛑]"
         my_bar = st.progress(0, text=progress_text)
         time.sleep(2)
         for percent_complete in range(100):
