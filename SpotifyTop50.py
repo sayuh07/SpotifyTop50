@@ -23,7 +23,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
 from sklearn.linear_model import LinearRegression
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import r2_score
 from sklearn import metrics as mt
 import plotly.express as px
@@ -41,11 +41,11 @@ from sklearn.preprocessing import StandardScaler
 from sklearn import metrics
 from sklearn.neighbors import KNeighborsRegressor
 
-from codecarbon import EmissionsTracker
+# from codecarbon import EmissionsTracker
 
-tracker = EmissionsTracker()
-tracker.start()
-tracker.stop()
+# tracker = EmissionsTracker()
+# tracker.start()
+# tracker.stop()
 
 # setting up the page streamlit
 
@@ -113,7 +113,7 @@ def get_dataset(select_dataset):
     if "Spotify Top 50 🎼" in select_dataset:
         df = pd.read_csv("music.csv")
         df = df.dropna()
-        df = df.drop(columns=['Unnamed: 0'])
+        #df = df.drop(columns=['Unnamed: 0'])
         return select_dataset, df
 
 
@@ -127,8 +127,8 @@ DATA_SELECT = {
 MODELS = {
     "Linear Regression": LinearRegression,
     "Logistic Regression": LogisticRegression ,
-    "K-Nearest Neighbors (KNN)": KNeighborsRegressor,
-    "Random Forest": RandomForestRegressor
+    "K-Nearest Neighbors (KNN)": KNeighborsClassifier,
+    "Random Forest": RandomForestClassifier
 }
 target_variable = {
     "Spotify Top 50 🎼": "Popularity"
@@ -251,65 +251,6 @@ if app_mode == 'Introduction 🏃':
         col10.markdown(" **Duration** ")
         col10.markdown("Duration in ms of the song")
         
-        # st.markdown(
-        #     """
-        #     <style>
-        #         div[data-testid="column"]:nth-of-type(1)
-        #         {
-        #             border:1px solid blue;
-        #             text-align: center;
-        #             font-family: bariol;
-        #         } 
-
-        #         div[data-testid="column"]:nth-of-type(2)
-        #         {
-        #             border:1px solid blue;
-        #             text-align: center;
-                   
-        #         }
-        #         div[data-testid="column"]:nth-of-type(3)
-        #         {
-        #             border:1px solid blue;
-        #             text-align: center;
-        #         }
-        #         div[data-testid="column"]:nth-of-type(4)
-        #         {
-        #             border:1px solid blue;
-        #             text-align: center;
-        #         } 
-        #         div[data-testid="column"]:nth-of-type(5)
-        #         {
-        #             border:1px solid blue;
-        #             text-align: center;
-        #         } 
-        #         div[data-testid="column"]:nth-of-type(6)
-        #         {
-        #             border:1px solid blue;
-        #             text-align: center;
-        #         } 
-        #         div[data-testid="column"]:nth-of-type(7)
-        #         {
-        #             border:1px solid blue;
-        #             text-align: center;
-        #         } 
-        #         div[data-testid="column"]:nth-of-type(8)
-        #         {
-        #             border:1px solid blue;
-        #             text-align: center;
-        #         } 
-        #         div[data-testid="column"]:nth-of-type(9)
-        #         {
-        #             border:1px solid blue;
-        #             text-align: center;
-        #         } 
-        #         div[data-testid="column"]:nth-of-type(10)
-        #         {
-        #             border:1px solid blue;
-        #             text-align: center;
-        #         } 
-        #     </style>
-        #     """,unsafe_allow_html=True
-        # )
         col11, col12, col13,col14,col15,col16,col17,col18,col19,col20 = st.columns(10)
         col11.markdown(" **Energy** ")
         col11.markdown("Perceptual measure of intensity and activity")
@@ -409,19 +350,8 @@ completeness= round(sum(nonmissing)/len(df),2)
 
     #st.button("Generate Report")
     if st.button("Generate Report"):
-        # pr = df.profile_report()
-        # export=pr.to_html()
         pr = df.profile_report(minimal=True)
         st_profile_report(pr)
-        # st.download_button(label="Download Full Report", data=export,file_name='report.html')
-        # st.markdown(pr.to_html(), unsafe_allow_html=True)
-        # st.write(pr)
-        # prof = pandas_profiling.ProfileReport(df, explorative=True, minimal=True)
-
-        # output = prof.to_file('output.html', silent=False)
-        
-    
-    
 
 
 # page 2
@@ -510,7 +440,7 @@ if app_mode == 'Prediction 🌠':
     list_variables = target_variable[select_ds]
 
     if model_mode == 'Linear Regression':
-        st.title("Linear Regression Lab 🧪")
+        st.title("Linear Regression 🧪")
         df = df.drop(['Country','Track Name','Artist Name','Album Name','Date','Markets'],axis=1)
         if st.button("Show ML Code 👀"):
             code = '''X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)'''
@@ -521,9 +451,10 @@ if app_mode == 'Prediction 🌠':
             st.code(code1, language='python')
             st.code(code2, language='python')
     elif model_mode == 'Logistic Regression':
-        st.title("Logistic Regression Lab 🧪")
+        st.title("Logistic Regression 🧪")
         # df = df.drop(['Popularity','Date','Acousticness','duration','Energy','Instrumentalness','Key','Liveness','Loudness','Mode','Speechiness','Tempo','TSignature','Positiveness'],axis=1)
         df = df.drop(['Country','Track Name','Artist Name','Album Name','Date','Markets'], axis=1)
+        list_variables = "Danceability"
         if st.button("Show ML Code 👀"):
             code = '''X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)'''
             code1= '''lm = LogisticRegression()
@@ -532,26 +463,16 @@ if app_mode == 'Prediction 🌠':
             st.code(code, language='python')
             st.code(code1, language='python')
             st.code(code2, language='python')
-            
-    elif model_mode == 'Logistic Regression':
-        acc = accuracy_score(y_test, predictions)
-        st.write("1) Model Accuracy (in %):", np.round(acc*100,2))
-        f1_score = f1_score(y_test, predictions, average='weighted')
-        st.write("2) Model F1 Score (in %):", np.round(f1_score*100,2))
-        precision_score = precision_score(y_test, predictions, average='weighted')
-        st.write("3) Model Precision Score (in %):", np.round(precision_score*100,2))
-        recall_score = recall_score(y_test, predictions, average='weighted')
-        st.write("4) Model Recall Score (in %):", np.round(recall_score*100,2))
         
     elif model_mode == 'K-Nearest Neighbors (KNN)':
-        st.title("K-Nearest Neighbors (KNN) Lab 🧪")
+        st.title("K-Nearest Neighbors (KNN) 🧪")
         df = df.drop(['Country','Track Name','Artist Name','Album Name','Date','Markets'],axis=1)
         if st.button("Show ML Code 👀"):
             code = '''scaler = StandardScaler()'''
             code1 = '''scaler.fit(df)'''
             code2 = '''scaled_features = scaler.transform(df)'''
             code3 = '''X_train, X_test, y_train, y_test = train_test_split(scaled_features,df['Popularity'],test_size=0.30)'''
-            code4 = '''knn = KNeighborsRegressor(n_neighbors=30)'''
+            code4 = '''knn = KNeighborsClassifier(n_neighbors=30)'''
             code5 = '''knn.fit(X_train, y_train)'''
             code6 = '''predictions = knn.predict(X_test)'''
             st.code(code, language='python')
@@ -563,11 +484,12 @@ if app_mode == 'Prediction 🌠':
             st.code(code6, language='python')
 
     elif model_mode == 'Random Forest':
-        st.title("Random Forest Lab 🧪")
+        st.title("Random Forest 🧪")
         df = df.drop(['Country','Track Name','Artist Name','Album Name','Date','Markets'],axis=1)
+        list_variables = "Danceability"
         if st.button("Show ML Code 👀"):
             code = '''X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.30)'''
-            code1 = '''rf = RandomForestRegressor(n_estimators=150, max_depth=15)'''
+            code1 = '''rf = RandomForestClassifier(n_estimators=150, max_depth=15)'''
             code2 = '''rf.fit(X_train, y_train)'''
             code3 = '''pred = rf.predict(X_test)'''
             st.code(code, language='python')
@@ -619,7 +541,10 @@ if app_mode == 'Prediction 🌠':
             scaler = StandardScaler()
             x = scaler.fit_transform(new_df2)
         elif model_mode == 'Random Forest':
-            lm = RandomForestRegressor(n_estimators=150, max_depth=15)
+            lm = RandomForestClassifier(n_estimators=150, max_depth=15)
+            y = (df[target_choice] * 100).astype(int)
+        elif model_mode == 'Logistic Regression':
+            y = (df[target_choice] * 100).astype(int)
         X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)
         model = lm.fit(X_train,y_train)
         predictions = lm.predict(X_test)
@@ -712,17 +637,17 @@ if app_mode == 'Prediction 🌠':
         recall_score = recall_score(y_test, predictions, average='weighted')
         st.write("4) Model Recall Score (in %):", np.round(recall_score*100,2))
     elif model_mode == 'K-Nearest Neighbors (KNN)':
-        st.write("1) The Mean Absolute Error of model is:", np.round(mt.mean_absolute_error(y_test, predictions ),2))
-        st.write("2) MSE: ", np.round(mt.mean_squared_error(y_test, predictions),2))
-        st.write("3) The R-Square score of the model is ",np.round(np.sqrt(mt.mean_squared_error(y_test, predictions)),2))
-        # acc = accuracy_score(y_test, predictions)
-        # st.write("4) Model Accuracy (in %):", np.round(acc*100,2))
+        # st.write("1) The Mean Absolute Error of model is:", np.round(mt.mean_absolute_error(y_test, predictions ),2))
+        # st.write("2) MSE: ", np.round(mt.mean_squared_error(y_test, predictions),2))
+        # st.write("3) The R-Square score of the model is ",np.round(np.sqrt(mt.mean_squared_error(y_test, predictions)),2))
+        acc = accuracy_score(y_test, predictions)
+        st.write("Model Accuracy (in %):", np.round(acc*100,2))
     elif model_mode == "Random Forest":
-        st.write("1) The Mean Absolute Error of model is:", np.round(mt.mean_absolute_error(y_test, predictions ),2))
-        st.write("2) MSE: ", np.round(mt.mean_squared_error(y_test, predictions),2))
-        st.write("3) The R-Square score of the model is ",np.round(np.sqrt(mt.mean_squared_error(y_test, predictions)),2))
-        # acc = accuracy_score(y_test, predictions)
-        # st.write("4) Model Accuracy (in %):", np.round(acc*100,2))
+        # st.write("1) The Mean Absolute Error of model is:", np.round(mt.mean_absolute_error(y_test, predictions ),2))
+        # st.write("2) MSE: ", np.round(mt.mean_squared_error(y_test, predictions),2))
+        # st.write("3) The R-Square score of the model is ",np.round(np.sqrt(mt.mean_squared_error(y_test, predictions)),2))
+        acc = accuracy_score(y_test, predictions)
+        st.write("Model Accuracy (in %):", np.round(acc*100,2))
 
     @st.cache_resource
     def download_file():
@@ -768,7 +693,7 @@ if app_mode == 'Prediction 🌠':
 #page 5
 if app_mode == 'Deployment 🚀':
     st.markdown("# :violet[Deployment 🚀]")
-    select_ds =  "Wine Quality 🍷"
+    select_ds =  "Spotify Top 50 🎼"
 #    select_dataset, df = get_dataset(select_ds)
 
     id = st.text_input('ID Model', '1f0644f9a47044c180624011a28516ca')
@@ -804,8 +729,8 @@ if app_mode == 'Deployment 🚀':
     number11 = st.number_input(deploy_df.columns[10],5)
     number12 = st.number_input(deploy_df.columns[11],0.0)
     number13 = st.number_input(deploy_df.columns[12],0.4)
-    number14 = st.number_input(deploy_df.columns[13],0.6)
-    number15 = st.number_input(deploy_df.columns[14],5)
+    number14 = st.number_input(deploy_df.columns[13],6)
+    number15 = st.number_input(deploy_df.columns[13],0.5)
 
     data_new = pd.DataFrame({deploy_df.columns[0]:[number1], deploy_df.columns[1]:[number2], deploy_df.columns[2]:[number3],
          deploy_df.columns[3]:[number4], deploy_df.columns[4]:[number5], deploy_df.columns[5]:[number6], deploy_df.columns[6]:[number7],
