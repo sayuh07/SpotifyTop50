@@ -495,7 +495,7 @@ if app_mode == 'Visualization 📊':
             my_bar.progress(percent_complete + 1, text=progress_text)
         time.sleep(3)
         my_bar.empty()
-        df2 = df[[list_variables[0],list_variables[1],list_variables[2],list_variables[3],list_variables[4]]]
+        df2 = df[[list_variables[1],list_variables[2],list_variables[3],list_variables[4]]]
         fig4 = sns.pairplot(df2.sample(500))
         tab4.write(" ")
         tab4.pyplot(fig4)
