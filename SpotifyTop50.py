@@ -441,7 +441,7 @@ if app_mode == 'Prediction 🌠':
 
     if model_mode == 'Linear Regression':
         st.title("Linear Regression 🧪")
-        df = df.drop(['Country','Track Name','Artist Name','Album Name','Date','Markets'],axis=1)
+        df = df.drop(['Country','Track Name','Artist Name','Album Name','Date','Markets', 'Popularity'],axis=1)
         if st.button("Show ML Code 👀"):
             code = '''X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)'''
             code1= '''lm = LinearRegression()
@@ -696,7 +696,7 @@ if app_mode == 'Deployment 🚀':
     select_ds =  "Spotify Top 50 🎼"
 #    select_dataset, df = get_dataset(select_ds)
 
-    id = st.text_input('ID Model', '1f0644f9a47044c180624011a28516ca')
+    id = st.text_input('ID Model', '79cb9182eed64fad8b546e453e6c9786')
         # Print emissions
     #logged_model = f'runs:/{id}/top_model_v1'
     logged_model = f'./mlruns/1/{id}/artifacts/top_model_v1'
@@ -712,33 +712,33 @@ if app_mode == 'Deployment 🚀':
         st.write("target not saved")
     
     df = pd.read_csv("music.csv")
-    deploy_df= df.drop(['Country','Track Name','Artist Name','Album Name','Date','Markets'], axis=1)
+    deploy_df= df.drop(['Country','Track Name','Artist Name','Album Name','Date','Markets', 'Popularity'], axis=1)
     list_var = deploy_df.columns
     st.write(target_choice)
     
-    number1 = st.number_input(deploy_df.columns[0],0.7)
-    number2 = st.number_input(deploy_df.columns[1],82)
-    number3 = st.number_input(deploy_df.columns[2],0.79)
-    number4 = st.number_input(deploy_df.columns[3],0.312)
-    number5 = st.number_input(deploy_df.columns[4],25)
-    number6 = st.number_input(deploy_df.columns[5],183551)
-    number7 = st.number_input(deploy_df.columns[6],0.0)
-    number8 = st.number_input(deploy_df.columns[7],11)
-    number9 = st.number_input(deploy_df.columns[8],0.08)
-    number10 = st.number_input(deploy_df.columns[9],0.0)
-    number11 = st.number_input(deploy_df.columns[10],1)
-    number12 = st.number_input(deploy_df.columns[11],0.04)
-    number13 = st.number_input(deploy_df.columns[12],125)
-    number14 = st.number_input(deploy_df.columns[13],4)
-    number15 = st.number_input(deploy_df.columns[13],0.2)
+    number1 = st.number_input(deploy_df.columns[0],0.3)
+    number2 = st.number_input(deploy_df.columns[1],0.244)
+    number3 = st.number_input(deploy_df.columns[2],0.0)
+    number4 = st.number_input(deploy_df.columns[3],61,673)
+    number5 = st.number_input(deploy_df.columns[4],0.0242)
+    number6 = st.number_input(deploy_df.columns[5],0.0)
+    number7 = st.number_input(deploy_df.columns[6],0)
+    number8 = st.number_input(deploy_df.columns[7],0.0154)
+    number9 = st.number_input(deploy_df.columns[8],-19.518)
+    number10 = st.number_input(deploy_df.columns[9],0)
+    number11 = st.number_input(deploy_df.columns[10],0.0232)
+    number12 = st.number_input(deploy_df.columns[11],60.038)
+    number13 = st.number_input(deploy_df.columns[12],1)
+    number14 = st.number_input(deploy_df.columns[13],0.0373)
 
     data_new = pd.DataFrame({deploy_df.columns[0]:[number1], deploy_df.columns[1]:[number2], deploy_df.columns[2]:[number3],
          deploy_df.columns[3]:[number4], deploy_df.columns[4]:[number5], deploy_df.columns[5]:[number6], deploy_df.columns[6]:[number7],
          deploy_df.columns[7]:[number8], deploy_df.columns[8]:[number9],deploy_df.columns[9]:[number10],deploy_df.columns[10]:[number11], 
-         deploy_df.columns[11]:[number12],deploy_df.columns[12]:[number13],deploy_df.columns[13]:[number14],deploy_df.columns[14]:[number15]})
+         deploy_df.columns[11]:[number12],deploy_df.columns[12]:[number13],deploy_df.columns[13]:[number14]})
     # Predict on a Pandas DataFrame.
     #import pandas as pd
     st.write("Prediction :", np.round(loaded_model.predict(data_new)[0],2))
+
 
 
 
